@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Placement Portal</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/boxicons/css/boxicons.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<!-- Fontawesome CDN Link -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<!-- Iconscout Link For Icons -->
+<link rel="stylesheet"
+	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+     <i class="bi bi-list toggle-sidebar-btn" style="margin-left:-10px;margin-right:10px"></i>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Placement Portal</span>
+      </a>
+     
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+    
+    
+
+    
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Startups</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+         <ul>   
+          <li>
+            <a th:href="@{/startup_onboarding}">
+              <i class="bi bi-circle "></i><span>Onboarding</span>
+            </a>
+          </li>
+       
+          <li>
+            <a th:href="@{/jobopening}">
+              <i class="bi bi-circle"></i><span>Job Posting</span>
+            </a>
+          </li>
+             <li>
+            <a th:href="@{/joblistfilters}">
+              <i class="bi bi-circle"></i><span>Job List</span>
+            </a>
+          </li>
+          </ul>
+        </ul>
+        </li>
+          
+      
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Institute</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+       <ul>
+          <li>
+            <a th:href="@{/institute_onboarding}">
+              <i class="bi bi-circle"></i><span>Onboarding</span>
+            </a>
+          </li>
+
+          <li>
+            <a th:href="@{/candidate_registration}">
+              <i class="bi bi-circle"></i><span>Candidate Form</span>
+            </a>
+          </li>
+        </ul>
+        </ul>
+      </li>
+      
+
+      
+
+ <li class="nav-heading">Pages</li>
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/register}">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/login}">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    </ul>
+
+  </aside>
+
+
+
+
+
+
+
+
+ 
+  <main id="main" class="main">
+
+		<div class="pagetitle">
+			<h1>Company Name</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">Home</li>
+					<li class="breadcrumb-item active">Management</li>
+				</ol>
+			</nav>
+		</div>
+
+		<section class="section dashboard">
+		<form th:action="@{/candidatefilter}" id="candidateFilter">
+			<div class="card info-card customers-card">
+				<div class="card-body">
+
+					<div class="row">
+            <div class="tab-pane fade show active profile-overview">
+              <p class="big fst-italic" th:text="${position.description}"></p>
+            
+							<div class="row">
+								<div class="col-lx-3 col-lg-3 label ">Function :</div>
+                <div class="col-lx-3 col-lg-3" th:text="${position.functions}"></div>	
+                <div class="col-lx-3 col-lg-3 label">Department :</div>
+								<div class="col-lx-3 col-lg-3" th:text="${position.functions}"></div>				
+							</div>
+							
+							<div class="row">
+								<div class="col-lx-3 col-lg-3 label">Position Type :</div>
+								<div class="col-lx-3 col-lg-3" th:text="${position.designation}"></div>
+								<div class="col-lx-3 col-lg-3 label">Country :</div>
+								<div class="col-lx-3 col-lg-3" th:text="${position.country}"></div>
+							</div>
+						
+							
+							<div class="row">
+								<div class="col-lx-3 col-lg-3 label">Work Mode :</div>
+								<div class="col-lx-3 col-lg-3" th:text="${position.work_mode}"></div>
+								<div class="col-lx-3 col-lg-3 label">Position Type :</div>
+								<div class="col-lx-3 col-lg-3" th:text="${position.position_type}"></div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+
+	      	<div class="card info-card customers-card">
+          		<div class="card-body">
+      						<h5 class="card-title">
+			          				Matching The Best ! <span>| Search Candidates By Filters</span>
+						      </h5>
+ 
+<!--changes to be done-->
+	
+
+  			<div class="single-row">
+
+        <div class="single-column">
+					<div class="col-lx-3 col-lg-3 label ">Candidate	Location :
+  &emsp;<select class="form-select" name="candidate_state"  id="inputState" style="width: 170px; height:20px; padding-top: 1px; font-size:10px; display: inline" aria-label="Default select example">
+
+                  <option value="SelectState">Select State</option>
+                  <option value="Andra Pradesh">Andra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madya Pradesh">Madya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Orissa">Orissa</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttaranchal">Uttaranchal</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option disabled style="background-color: #aaa; color: #fff">UNION
+                    Territories</option>
+                  <option value="Andaman and Nicobar Islands">Andaman
+                    and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadar and Nagar Haveli">Dadar and Nagar
+                    Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadeep">Lakshadeep</option>
+                  <option value="Pondicherry">Pondicherry</option>
+                   </select> 
+            &ensp;<select class="form-select" name="candidate_city" id="inputDistrict" aria-label="Default select example"style="width: 170px; height:20px; padding-top: 1px; font-size:10px; display: inline" >
+                   <option value="SelectCity">Select City</option>
+
+                </select>
+
+                </div>
+              </div>
+             
+              <div class="single-column">
+              <div class="col-lx-3 col-lg-3 label">Previous	Work Experience :</div>
+            
+			&emsp;<input class="form-check-input" type="radio" name="no_of_years_work_ex"	value="2"> 
+						  <label class="form-check-label" for="gridRadios1"> 0 - 2 Years</label>
+								
+			&ensp;<input class="form-check-input" type="radio" name="no_of_years_work_ex"	value="4"> 
+              <label class="form-check-label" for="gridRadios2"> 2 - 4 Years</label>
+								
+			&ensp;<input class="form-check-input" type="radio" name="no_of_years_work_ex" value="6"> 
+              <label class="form-check-label" for="gridRadios2">4 - 6 Years</label>
+								
+							</div>
+					
+          </div>
+
+
+
+
+						
+          	<div class="single-row">
+
+              <div class="single-column">
+              <div class="col-lx-3 col-lg-3 label">Preffered Work Mode :</div>
+                  
+      &emsp;<input class="form-check-input" type="radio" value="Work From Home" name="work_mode"> 
+              <label class="form-check-label" >Work From Home</label>
+              
+      &ensp;<input class="form-check-input" type="radio" value="Work From Office" name="work_mode"> 
+              <label class="form-check-label" >Work From Office</label>
+              
+      &ensp;<input class="form-check-input" type="radio" value="Hybrid" name="work_mode"> 
+              <label class="form-check-label" >Hybrid</label>
+								
+						</div>
+          
+
+              
+          <div class="single-column">
+            <div class="col-lx-3 col-lg-3 label">Preffered Position Type :</div>
+            
+      &emsp;<input class="form-check-input" type="radio"  value="Job"name="job_or_internship"> 
+              <label class="form-check-label" for="gridRadios1">Job</label>
+								
+      &ensp;<input class="form-check-input" type="radio"   value="Internship"name="job_or_internship"> 
+              <label class="form-check-label" for="gridRadios2">Internship</label>
+
+							</div>
+            </div>
+						
+				</form>
+			
+
+               	<div class="single-row">
+								    <form th:action="@{/candidatelistfilters}" id="jobfilter1">
+                        <label class="col-lx-3 col-lg-3 label">Search Candidate (Name/Skill) :</label>
+         <div class="select-btn"style="width: 280px; height:30px; padding-top: 1px; font-size:10px; display: inline">
+									<input style="background: transparent; border: none; outline: none;"
+										spellcheck="false" type="text" placeholder="Enter Details"name="keyword" >
+										<input
+										 type="hidden"value="${position.position_id}" name="position_id" >
+        					<button style="background: transparent; border: none; outline: none;" type="submit" title="Search"><i class="bi bi-search"></i></button>
+								
+								</div>	</form>	
+                </div>	
+                
+				
+     	
+							
+	 		          <div class="single-row"style="margin-top:20px;">
+				           <div class="col-sm-10">
+    	                <input type="submit" value="Apply" class="btn btn-success"  form="candidateFilter"id=" formSubmit" style="width:60px; height:25px;  padding-top: 2px; font-size: 12px";>
+	                    <input type="reset" value="Reset" class="btn btn-success"  form="candidateFilter"id=" formSubmit" style="width:60px; height:25px; padding-top: 2px; font-size: 12px; background-color:#0d6efd";>
+			          </div>
+						
+							
+						<hr style="width: 100%; text-align: center; margin-left: 0">
+
+						<h5 class="card-title" style="padding-top: 5px;">Candidate List</span></h5>
+
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Select</th>
+									<th scope="col">Name</th>
+									<th scope="col">Primary Skills</th>
+									<th scope="col">Secondary Skills</th>
+									<th scope="col">City</th>
+									<th scope="col">Experience</th>
+									<th scope="col">CV</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="c : ${listcandidate}">
+									<th><input class="form-check-input" type="checkbox"
+										name="gridRadios" id="gridRadios1" value="option1"></th>
+									<td th:text="${c.candidate_name}"></td>
+									<td th:text="${c.primary_skills}"></td>
+									<td th:text="${c.secondary_skills}"></td>
+									<td th:text="${c.candidate_city}"></td>
+									<td th:text="${c.no_of_years_work_ex}"></td>
+									<td><a class="btn btn-primary" th:href="@{/candidatelistfilters/{candidate_id}(candidate_id=${c.candidate_id})}"style="width:90px; height:25px;  padding-top: 2px; font-size: 12px";>Download</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="row mb-3">
+							<div class="col-sm-10">
+								<button type="button" class="btn btn-success" style="width:90px; height:25px;  padding-top: 2px; font-size: 12px";>Map Candidate</button>
+							</div>
+						</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+	
+
+				</div>
+			
+		</section>
+
+	</main>
+
+  
+	<!-- Vendor JS Files -->
+	<script th:src="@{/vendor/apexcharts/apexcharts.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/vendor/chart.js/chart.umd.js}"></script>
+	<script th:src="@{/vendor/echarts/echarts.min.js}"></script>
+	<script th:src="@{/vendor/quill/quill.min.js}"></script>
+	<script th:src="@{/vendor/simple-datatables/simple-datatables.js}"></script>
+	<script th:src="@{/vendor/tinymce/tinymce.min.js}"></script>
+	<script th:src="@{/vendor/php-email-form/validate.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+<style>
+  .form-check-label {
+    display: inline;
+  }
+  
+  .col-form-label {
+    width: 100%;
+  }
+  
+  .single-row{
+    width: 100%;
+    clear: both;
+  }
+ 
+  .single-column{
+    width: 50%;
+    float:left;
+  }
+
+  .single-column input{
+    width: 90;
+  }
+
+  .single-row {
+    margin: 15px 0 15px 0;
+    padding: 0 0 0 0;
+  }
+  
+  .label {
+    width: 24%;
+    display: inline;
+  }
+
+
+  .col-md-8 {
+    width: 100%;
+  }
+  
+  select {
+    display: inline;
+    cursor: pointer;
+  }
+
+  
+  .col-sm-10 {
+    display: inline;
+    width: 100%;
+   }
+
+
+  </style>
+  
+</html>

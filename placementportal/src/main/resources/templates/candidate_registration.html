@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Placement Portal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/boxicons/css/boxicons.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{/vendor/simple-datatables/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Template Main CSS File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<!-- Fontawesome CDN Link -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<!-- Iconscout Link For Icons -->
+<link rel="stylesheet"
+	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+     <i class="bi bi-list toggle-sidebar-btn" style="margin-left:-10px;margin-right:10px"></i>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Placement Portal</span>
+      </a>
+     
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+    
+    
+
+    
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Startups</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+         <ul>   
+          <li>
+            <a th:href="@{/startup_onboarding}">
+              <i class="bi bi-circle "></i><span>Onboarding</span>
+            </a>
+          </li>
+       
+          <li>
+            <a th:href="@{/jobopening}">
+              <i class="bi bi-circle"></i><span>Job Posting</span>
+            </a>
+          </li>
+          
+           <li>
+            <a th:href="@{/joblistfilters}">
+              <i class="bi bi-circle"></i><span>Job List</span>
+            </a>
+          </li>
+          
+          </ul>
+        </ul>
+        </li>
+          
+      
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Institute</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+       <ul>
+          <li>
+            <a th:href="@{/institute_onboarding}">
+              <i class="bi bi-circle"></i><span>Onboarding</span>
+            </a>
+          </li>
+
+          <li>
+            <a th:href="@{/candidate_registration}">
+              <i class="bi bi-circle"></i><span>Candidate Form</span>
+            </a>
+          </li>
+        </ul>
+        </ul>
+      </li>
+      
+
+      
+
+ <li class="nav-heading">Pages</li>
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/register}">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/login}">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    </ul>
+
+  </aside>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Institute</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Candidate Form</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Matching the Best</h5>
+
+        <!-- General Form Elements -->
+        <form th:object="${candidate}" th:action="@{saveCandidate}"  action="#" class="search-form" id="onboarding" name="onboarding" method="POST">
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label ">Candidate Name</label>
+            <div class="col-sm-10">
+              <input type="text" th:field="*{candidate_name}"  class="form-control " spellcheck="false" >            
+              <div id="candidateNameError" class="invalid-feedback">
+                Please enter a valid candidate name.
+              </div>           
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-2 col-form-label">CV Upload</label>
+            <div class="col-sm-10">
+              <input type="file" th:field="*{cv_upload}" id="cvUpload" class="form-control" accept=".pdf,.doc,.docx,.rtf,.txt,.jpg" max-size="5000000">
+              <div id="cvUploadError1" class="invalid-feedback">
+                Please select a file.
+              </div>
+              <div id="cvUploadError2" class="invalid-feedback">
+                Please select a valid file type for the CV.(pdf,doc,docx,txt,rtf,jpg)
+              </div>
+              <div id="cvUploadError3" class="invalid-feedback">
+                The selected file is too large. Please select a file with a size smaller than 2MB.
+              </div>
+            </div>
+          </div>
+          
+          
+
+          <div class="row mb-3">
+            <label for="fileUpload" class="col-sm-2 col-form-label">Any other relevant information</label>
+            <div class="col-sm-10">
+              <input type="file" th:field="*{other_relevant_upload}" id="fileUpload" class="form-control" accept=".pdf,.doc,.docx,.rtf,.txt,.jpg,.jpeg,.zip,.rar" multiple max-size="4000000">
+              <div id="fileUploadError" class="invalid-feedback"></div>
+            </div>
+          </div>
+          
+
+
+          <!--   Dynamic table  starts  here             -->
+
+          <h5 class="card-title">Educational Details</h5>
+  
+  <!--           <table id="tbl1" class="table table-bordered ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course</th>
+                <th scope="col">Institute</th>
+                <th scope="col">University</th>
+                <th scope="col">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>MSC Computer Science</td>
+                <td>PVG College</td>
+                <td>SPPU</td>
+                <td>95%</td>
+              </tr>
+            </tbody>
+            <tr>
+              <th scope="row"></th>
+              <td><input type="text" class="form-control" name="course" ></td>
+              <td><input type="text" class="form-control" name="institute" ></td>
+              <td><input type="text" class="form-control" name="university" ></td>
+              <td><input type="text" class="form-control" name="percentage" ></td>
+              <td><input type="button" class="btn btn-primary" name="add" value="Add Data" onclick="addStudent();"></td>
+            </tr>
+          </table>
+
+  -->
+  
+  
+
+          <h5 class="card-title">Do it Right the First Time !</h5>
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label ">Core Area / Primary Skills</label>
+            <div class="col-sm-10">
+              <input type="text" th:field="*{primary_skills}" id="primarySkills" class="form-control" >
+              <div id="primarySkillError" class="invalid-feedback">invalid</div>
+               
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label">Secondary Skills</label>
+            <div class="col-sm-10">
+              <input type="text" th:field="*{secondary_skills}" id="secondarySkills" class="form-control">
+              <div id="secondarySkillError" class="invalid-feedback">invalid</div>
+            </div>
+          </div>
+
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0 ">Experience</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" th:field="*{experience}" type="radio"  value="Yes" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" th:field="*{experience}" type="radio"  value="No">
+                <label class="form-check-label" for="gridRadios2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label ">No. of Years of Work-Ex</label>
+            <div class="col-sm-10">
+              <input type="number" th:field="*{no_of_years_work_ex}" class="form-control" min="0" max="55" >
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label ">Work Mode</label>
+            <div class="col-sm-10">
+              <select th:field="*{work_mode}" class="form-select" aria-label="Default select example" >
+                <option value="" disabled selected>-- Please select Work Mode --</option>
+                <option value="Work From Home">Work From Home</option>
+                      <option value="Work From Office">Work From Office</option>
+                      <option value="Hybrid">Hybrid</option>
+              </select>
+            </div>
+          </div>
+
+          
+          <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" th:field="*{gender}"type="radio" value="Female">
+                      <label class="form-check-label" for="gridRadios1">
+                       Female
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" th:field="*{gender}" type="radio" value="Male">
+                      <label class="form-check-label" for="gridRadios2">
+                        Male
+                      </label>
+                    </div>
+                  </div>
+                  </fieldset>
+
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label ">Candidate City</label>
+            <div class="col-sm-10">
+              <select th:field="*{candidate_city}" class="form-select" aria-label="Default select example" >
+                <option value="" disabled selected>-- Candidate City --</option>
+                <option value="Local">Local</option>
+                <option value="City">Other City</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label">IC or Manager</label>
+            <div class="col-sm-10">
+              <select th:field="*{ic_or_manager}" class="form-select" aria-label="Default select example">
+                <option value="" disabled selected>-- IC / Manager --</option>
+                <option value="IC">IC</option>
+                <option value="Manager">Manager</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label ">Interested in Job / Internship</label>
+            <div class="col-sm-10">
+              <select th:field="*{job_or_internship}" class="form-select" aria-label="Default select example" >
+                <option value="" disabled selected>-- Job / Internship --</option>
+                <option value="Job">Job</option>
+                <option value="Internship">Internship</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label ">Institute Name</label>
+            <div class="col-sm-10">
+              <select  class="form-select" aria-label="Default select example">
+                <option value="" disabled selected>-- Institute Name --</option>
+                <option value="1">College 1</option>
+                <option value="2">College 2</option>
+                <option value="3">College 3</option>
+                <option value="4">College 4</option>
+              </select>
+            </div>
+          </div>
+
+          <h5 class="card-title">Expectations (only for Laterals)</h5>
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label">CTC Fixed (INR LPA)</label>
+            <div class="col-sm-10">
+              <select th:field="*{ctc_fixed}" class="form-select" aria-label="Default select example">
+                <option value="" disabled selected>-- CTC Fixed (INR LPA) --</option>
+                <option value="1">2 LPA to 4 LPA</option>
+                <option value="2">5 LPA to 10 LPA</option>
+                <option value="3">12 LPA to 25 LPA</option>
+                <option value="4">25 LPA and above</option>
+              </select>
+            </div>
+          </div>
+
+
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label"> CTC Variable (INR LPA)</label>
+            <div class="col-sm-10">
+              <input th:field="*{ctc_variable}" type="text" id="ctcVariable" class="form-control" >
+              <div id="ctcVariableError" class="invalid-feedback">invalid</div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label">CTC Total (INR LPA)</label>
+            <div class="col-sm-10">
+              <input th:field="*{ctc_total}" type="text" id="ctcTotal" class="form-control" >
+              <div id="ctcTotalError" class="invalid-feedback">invalid</div>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <div class="col-sm-10" style="text-align: center;margin-top:30px;">
+              <button type="submit" class="btn btn-primary" style=" margin-left: 50px;">Save</button>
+              <button type="reset" class="btn btn-secondary">Clear</button>
+            </div>
+          </div>
+
+        </form><!-- End General Form Elements -->
+
+      </div>
+    </div>
+
+  </main>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+	<script th:src="@{/vendor/apexcharts/apexcharts.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/vendor/chart.js/chart.umd.js}"></script>
+	<script th:src="@{/vendor/echarts/echarts.min.js}"></script>
+	<script th:src="@{/vendor/quill/quill.min.js}"></script>
+	<script th:src="@{/vendor/simple-datatables/simple-datatables.js}"></script>
+	<script th:src="@{/vendor/tinymce/tinymce.min.js}"></script>
+	<script th:src="@{/vendor/php-email-form/validate.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>

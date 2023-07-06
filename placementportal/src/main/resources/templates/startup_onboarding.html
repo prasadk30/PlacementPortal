@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Placement Portal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/boxicons/css/boxicons.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{/vendor/simple-datatables/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Template Main CSS File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<!-- Fontawesome CDN Link -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<!-- Iconscout Link For Icons -->
+<link rel="stylesheet"
+	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+ <div class="d-flex align-items-center justify-content-between">
+     <i class="bi bi-list toggle-sidebar-btn" style="margin-left:-10px;margin-right:10px"></i>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Placement Portal</span>
+      </a>
+     
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+    
+    
+
+    
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Startups</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+         <ul>   
+          <li>
+            <a th:href="@{/startup_onboarding}">
+              <i class="bi bi-circle "></i><span>Onboarding</span>
+            </a>
+          </li>
+       
+          <li>
+            <a th:href="@{/jobopening}">
+              <i class="bi bi-circle"></i><span>Job Posting</span>
+            </a>
+          </li>
+             <li>
+            <a th:href="@{/joblistfilters}">
+              <i class="bi bi-circle"></i><span>Job List</span>
+            </a>
+          </li>
+          </ul>
+        </ul>
+        </li>
+          
+      
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Institute</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+       <ul>
+          <li>
+            <a th:href="@{/institute_onboarding}">
+              <i class="bi bi-circle"></i><span>Onboarding</span>
+            </a>
+          </li>
+
+          <li>
+            <a th:href="@{/candidate_registration}">
+              <i class="bi bi-circle"></i><span>Candidate Form</span>
+            </a>
+          </li>
+        </ul>
+        </ul>
+      </li>
+      
+
+      
+
+ <li class="nav-heading">Pages</li>
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/register}">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/login}">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    </ul>
+
+  </aside>
+
+  <main id="main" class="main">
+<div class="pagetitle">
+
+    <div class="pagetitle">
+      <h1>Startup</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Startup Onboarding Form</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Who's who!</h5>
+
+        <!-- General Form Elements -->
+        <form th:object="${company}" th:action="@{saveCompany}"  action="#" class="search-form" id="onboarding" name="onboarding" method="POST" >
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Company Name<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" th:field="*{company_name}" class="form-control" id="companyName" name="companyName"
+                                        required>
+                                    <div id="companyNameError" class="invalid-feedback">
+                                        Please enter a valid company name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Brand Name<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" th:field="*{brand_name}" class="form-control" id="brandName" name="brandName" required>
+                                    <div id="brandNameError" class="invalid-feedback">
+                                        Please enter a valid brand name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputDate" class="col-sm-2 col-form-label">Start Date<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="date" th:field="*{start_date}" class="form-control" id="startDate" required max="">
+                                </div>
+                            </div>
+                            
+                            
+                            
+                     		 <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Head Office - Country<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <select th:field="*{head_office_country}" class="form-select" aria-label="Default select example" id="country-dropdown"
+                                        name="country-dropdown" required>
+                                        <option value="" disabled selected>-- Please select country --</option>
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Head Office - State<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <select th:field="*{head_office_state}" class="form-select" aria-label="Default select example" id="state-Dropdown"
+                                        name="state-Dropdown" required>
+                                        <option value="" disabled selected>-- Please select state --</option>
+                                    </select>
+                                </div>
+                            </div>
+                             <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Head Office - City<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <select th:field="*{head_office_city}" class="form-select" aria-label="Default select example" id="city-Dropdown"
+                                        name="city-Dropdown" required>
+                                        <option value="" disabled selected>-- Please select city --</option>
+                                    </select>
+                     
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Founder Name<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" th:field="*{founder_name}" class="form-control" id="founderName" name="founderName"
+                                        required>
+                                    <div id="founderNameError" class="invalid-feedback">
+                                        Please enter a valid founder name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">CEO/MD Name<span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" th:field="*{ceo_md_name}" class="form-control" id="ceoName" name="ceoName" required>
+                                    <div id="ceoNameError" class="invalid-feedback">
+                                        Please enter a valid CEO/MD name.
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="card-title">Understanding you Better!</h5>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Company - Website <span class="required">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="url" th:field="*{company_website}" class="form-control" id="companyWebsite" name="companyWebsite"
+                                        required>
+                                    <div id="companyWebsiteError" class="invalid-feedback">
+                                        Please enter a valid website URL.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Company - LinkedIn</label>
+                                <div class="col-sm-10">
+                                    <input type="url" th:field="*{company_linkedin}" class="form-control" id="companyLinkedin" name="companyLinkedin">
+                                    <div id="companyLinkedinError" class="invalid-feedback">
+                                        Please enter a valid LinkedIn profile.
+                                    </div>
+                                </div>
+                            </div>
+		                  <div class="row mb-3">
+		                      <label for="inputText" class="col-sm-2 col-form-label">Any other relevant link </label>
+		                      <div class="col-sm-10">
+		                          <input type="url" th:field="*{other_relevant_link}" class="form-control" id="relevantLink" name="relevantLink">
+		                          <div id="relevantLinkError" class="invalid-feedback">
+		                              Please enter a valid link.
+		                          </div>
+		                      </div>
+		                  </div>
+<!-- 		                  we can use JavaScript FileReader API to read the content of the file and display it in a new window or tab for the user to view or download. -->
+		                  <div class="row mb-3">
+							    <label for="inputNumber" class="col-sm-2 col-form-label">Corporate Presentation<span class="required">*</span></label>
+							    <div class="col-sm-10">
+							        <input th:field="*{corporate_presentation}" class="form-control" type="file" id="presentation" name="presentation" accept=".pdf, .ppt, .pptx, .doc" required maxlength="2097152">
+							        <small class="form-text text-muted">Maximum file size: 2 MB (.pdf,.ppt,.pptx,.doc allowed)</small>
+							        <div id="presentationSizeError" class="invalid-feedback">
+                                        File size is too large. Maximum file size is 2 MB.
+                                    </div>
+                                    <div id="presentationTypeError" class="invalid-feedback">
+                                        Invalid file type. Allowed file types are:.pdf,.ppt,.pptx,.doc.
+                                    </div>
+							    </div>
+						</div>
+		                 <div class="row mb-3">
+						    <label for="inputNumber" class="col-sm-2 col-form-label">Any other File Upload</label>
+						    <div class="col-sm-10">
+						        <input th:field="*{other_file_upload}" class="form-control" type="file" id="otherfile" name="otherfile" accept=".pdf, .doc, .docx, .txt, .jpg, .jpeg, .png" maxlength="2097152">
+						        <small class="form-text text-muted">Maximum file size: 2 MB (.pdf,.doc,.docx,.txt,.jpg,.jpeg,.png allowed)</small>
+						        <div id="otherfileSizeError" class="invalid-feedback">
+                                        File size is too large. Maximum file size is 2 MB.
+                                </div>
+                                <div id="otherfileTypeError" class="invalid-feedback">
+                                        Invalid file type. Allowed file types are: pdf, doc, docx, txt, jpg, jpeg, png.
+                                </div>
+						    </div>
+						</div>
+						<h5 class="card-title">Growth & Outlook</h5>
+		                  <div class="row mb-3">
+		                      <label class="col-sm-2 col-form-label">Revenue(INR)<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <select th:field="*{revenue}" class="form-select" aria-label="Default select example" required>
+		                              <option value="" disabled selected>-- Please select Revenue within the range --</option>
+		                              <option value="1">
+		                                  Pre-revenue</option>
+		                              <option value="2">
+		                                  Less than 10 Lakhs</option>
+		                              <option value="3">
+		                                  10 Lakhs - 50 Lakhs</option>
+		                              <option value="4">
+		                                  50 Lakhs - 1 Crore</option>
+		                              <option value="5">
+		                                 1 Crore - 10 Crores</option>
+		                              <option value="6">
+		                                 10 Crores - 50 Crores</option>
+		                              <option value="7">
+		                                 50 Crores - 100 Crores</option>
+		                              <option value="8">
+		                                 More than 100 Crores</option>
+		                          </select>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label for="inputNumber" class="col-sm-2 col-form-label">Number of Operating Cities/BU<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="number" th:field="*{operating_cities}" class="form-control" required>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label class="col-sm-2 col-form-label">Sector<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <select th:field="*{sector}" class="form-select" aria-label="Default select example" required>
+		                              <option value="" disabled selected>-- Please select sector --</option>
+		                              <option value="1">
+		                                  IT</option>
+		                              <option value="2">
+		                                  Marketing</option>
+		                              <option value="3">
+		                                  Sales</option>
+		                          </select>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label class="col-sm-2 col-form-label">Industry<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <select th:field="*{industry}" class="form-select" aria-label="Default select example" required>
+		                              <option value="" disabled selected>-- Please select industry --</option>
+		                              <option value="1">
+		                                  IT</option>
+		                              <option value="2">
+		                                  Business</option>
+		                              <option value="3">
+		                                  Marketing</option>
+		                          </select>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label class="col-sm-2 col-form-label">Business Model<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <select th:field="*{business_model}" class="form-select" aria-label="Default select example" required>
+		                              <option value="" disabled selected>-- Please select Business Model --</option>
+		                              <option value="B2B">B2B (Business to Business)</option>
+									  <option value="B2C">B2C (Business to Consumer)</option>
+									  <option value="C2C">C2C (Consumer to Consumer)</option>
+									  <option value="C2B">C2B (Consumer to Business)</option>
+									  <option value="B2G">B2G (Business to Government)</option>
+									  <option value="G2B">G2B (Government to Business)</option>
+									  <option value="Freemium">Freemium</option>
+									  <option value="Subscription">Subscription</option>
+									  <option value="Marketplace">Marketplace</option>
+									  <option value="E-commerce">E-commerce</option>
+									  <option value="Advertising">Advertising</option>
+									  <option value="Affiliate">Affiliate</option>
+									  <option value="SaaS">SaaS (Software as a Service)</option>
+									  <option value="PaaS">PaaS (Platform as a Service)</option>
+									  <option value="IaaS">IaaS (Infrastructure as a Service)</option>
+									  <option value="Blockchain">Blockchain</option>
+									  <option value="Sharing economy">Sharing economy</option>
+									  <option value="Crowdfunding">Crowdfunding</option>
+									  <option value="Social enterprise">Social enterprise</option>
+		                          </select>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label for="inputText" class="col-sm-2 col-form-label">Competitor<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="text" th:field="*{competitor}" class="form-control" required>
+		                      </div>
+		                  </div>
+		                  <h5 class="card-title">People Strategy</h5>
+		                  <div class="row mb-3">
+		                      <label class="col-sm-2 col-form-label">Current Employee Count<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <select th:field="*{current_employee_count}" class="form-select" aria-label="Default select example" required>
+		                              <option value="" disabled selected>-- Please select Employee Count --</option>
+		                              <option value="1">
+		                                 1-50 </option>
+		                              <option value="51">
+		                                  51-100 </option>
+		                              <option value="101">
+		                                  101-200</option>
+		                              <option value="201">
+		                                  201-500 </option>
+		                              <option value="501">
+		                                  501-1000 </option>
+		                              <option value="1001">
+		                                  1001-5000 </option>
+		                              <option value="5001">
+		                                  5001-10000 </option>
+		                              <option value="10001">
+		                                  10000+ </option>
+		                          </select>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label for="inputNumber" class="col-sm-2 col-form-label">Projected Employee Count in 1
+		                          year<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="number" th:field="*{projected_employee_count}" class="form-control" required>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label for="inputNumber" class="col-sm-2 col-form-label">Yearly Number of Hires<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="number" th:field="*{yearly_no_of_hires}" class="form-control" required>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3">
+		                      <label for="inputNumber" class="col-sm-2 col-form-label">Average Tenure of the Employee
+		                          (months)<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="number" th:field="*{avg_tenure_of_employee}" class="form-control" required>
+		                      </div>
+		                  </div>
+		                  <div class="row mb-3 d-none"><!-- to hide field d-none -->
+		                      <label for="inputPassword" class="col-sm-2 col-form-label">CompanyID<span class="required">*</span></label>
+		                      <div class="col-sm-10">
+		                          <input type="text" id="companyId" value="100" th:field="*{company_ID}" class="form-control" readonly>
+		                      </div>
+		                  </div>
+		                  <div class="d-flex justify-content-center mt-5">
+					 <button type="submit" class="btn btn-primary">Save</button>
+					  <button type="submit" class="btn btn-primary mx-5" id="resetForm" onclick="resetForm()">Reset</button>
+					</div>
+                    </form><!-- End General Form Elements -->
+                    <br>
+    <a th:href="@{/CompanyList}">Company List</a>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+                    
+</div>
+</div>
+</div>
+    </main>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+	<script th:src="@{/vendor/apexcharts/apexcharts.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/vendor/chart.js/chart.umd.js}"></script>
+	<script th:src="@{/vendor/echarts/echarts.min.js}"></script>
+	<script th:src="@{/vendor/quill/quill.min.js}"></script>
+	<script th:src="@{/vendor/simple-datatables/simple-datatables.js}"></script>
+	<script th:src="@{/vendor/tinymce/tinymce.min.js}"></script>
+	<script th:src="@{/vendor/php-email-form/validate.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>

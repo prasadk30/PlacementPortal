@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Placement Portal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/bootstrap-icons/bootstrap-icons.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/boxicons/css/boxicons.min.css}"
+	rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{/vendor/simple-datatables/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Template Main CSS File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<!-- Fontawesome CDN Link -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<!-- Iconscout Link For Icons -->
+<link rel="stylesheet"
+	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+     <div class="d-flex align-items-center justify-content-between">
+     <i class="bi bi-list toggle-sidebar-btn" style="margin-left:-10px;margin-right:10px"></i>
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Placement Portal</span>
+      </a>
+     
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+    
+    
+
+    
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Startups</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+         <ul>   
+          <li>
+            <a th:href="@{/startup_onboarding}">
+              <i class="bi bi-circle "></i><span>Onboarding</span>
+            </a>
+          </li>
+       
+          <li>
+            <a th:href="@{/jobopening}">
+              <i class="bi bi-circle"></i><span>Job Posting</span>
+            </a>
+          </li>
+          
+             <li>
+            <a th:href="@{/joblistfilters}">
+              <i class="bi bi-circle"></i><span>Job List</span>
+            </a>
+          </li>
+          </ul>
+        </ul>
+        </li>
+          
+      
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Institute</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+       <ul>
+          <li>
+            <a th:href="@{/institute_onboarding}">
+              <i class="bi bi-circle"></i><span>Onboarding</span>
+            </a>
+          </li>
+
+          <li>
+            <a th:href="@{/candidate_registration}">
+              <i class="bi bi-circle"></i><span>Candidate Form</span>
+            </a>
+          </li>
+        </ul>
+        </ul>
+      </li>
+      
+
+      
+
+ <li class="nav-heading">Pages</li>
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/register}">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/login}">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    </ul>
+
+  </aside>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Institute</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Onbording Form</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Campus Essentials</h5>
+
+          <!-- General Form Elements -->
+          <form th:object="${institute}" th:action="@{saveInstitute}"  action="#" class="search-form" id="onboarding" name="onboarding" method="POST">
+            <div class="row mb-3">
+              <label for="inputText" class="col-sm-2 col-form-label required">Institute Name (registerted)</label>
+              <div class="col-sm-10">
+                <input type="text" th:field="*{institute_name}" class="form-control" id="instituteName" required>
+                <div id="instituteNameError" class="invalid-feedback">
+                   Please enter a valid institute name.
+                </div>
+               
+              </div>
+            </div>
+            
+             <div class="row mb-3">
+              <label for="inputEmail" class="col-sm-2 col-form-label required">Brand Name</label>
+              <div class="col-sm-10">
+                <input type="text"  th:field="*{brand_name}" class="form-control" required>
+              </div>
+            </div>
+
+            
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Start Date</label>
+              <div class="col-sm-10">
+                <input type="date" th:field="*{start_date}"  class="form-control" required>
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <label for="inputNumber" class="col-sm-2 col-form-label required">State</label>
+              <div class="col-sm-10">
+                <select th:field="*{state}" class="form-select" id="state" aria-label="Default select example">
+              
+    <!--- India states -->
+      <option value="">Select State</option>
+    
+  <option value="Andhra Pradesh">Andhra Pradesh</option>
+  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+  <option value="Assam">Assam</option>
+  <option value="Bihar">Bihar</option>
+  <option value="Chhattisgarh">Chhattisgarh</option>
+  <option value="Gujarat">Gujarat</option>
+  <option value="Haryana">Haryana</option>
+  <option value="Himachal Pradesh">Himachal Pradesh</option>
+  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+  <option value="Goa">Goa</option>
+  <option value="Jharkhand">Jharkhand</option>
+  <option value="Karnataka">Karnataka</option>
+  <option value="Kerala">Kerala</option>
+  <option value="Madhya Pradesh">Madhya Pradesh</option>
+  <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+  <option value="Mizoram">Mizoram</option>
+  <option value="Nagaland">Nagaland</option>
+  <option value="Odisha">Odisha</option>
+  <option value="Punjab">Punjab</option>
+  <option value="Rajasthan">Rajasthan</option>
+  <option value="Sikkim">Sikkim</option>
+  <option value="Tamil Nadu">Tamil Nadu</option>
+  <option value="Telangana">Telangana</option>
+  <option value="Tripura">Tripura</option>
+  <option value="Uttarakhand">Uttarakhand</option>
+  <option value="Uttar Pradesh">Uttar Pradesh</option>
+  <option value="West Bengal">West Bengal</option>
+  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+  <option value="Chandigarh">Chandigarh</option>
+  <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+  <option value="Daman and Diu">Daman and Diu</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Lakshadweep">Lakshadweep</option>
+  <option value="Puducherry">Puducherry</option>
+        </select>
+         
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <label for="inputNumber" class="col-sm-2 col-form-label required">Main Campus - City</label>
+              <div class="col-sm-10">
+                <select th:field="*{main_campus_city}" class="form-select" aria-label="Default select example" id="city">
+                  <option value="">Select City</option>
+
+   <script>
+    const cities = [
+      { state: "Andhra Pradesh", cities: ['Adilabad','Anantapur','Chittoor','Kakinada','Guntur','Hyderabad','Karimnagar','Khammam','Krishna','Kurnool','Mahbubnagar','Medak','Nalgonda','Nizamabad','Ongole','Hyderabad','Srikakulam','Nellore','Visakhapatnam','Vizianagaram','Warangal','Eluru','Kadapa',] },
+
+      { state: "Arunachal Pradesh", cities: ['Anjaw','Changlang','East Siang','Kurung Kumey','Lohit','Lower Dibang Valley','Lower Subansiri',
+'Papum Pare','Tawang','Tirap','Dibang Valley','Upper Siang','Upper Subansiri','West Kameng','West Siang',] },
+
+      { state: "Assam", cities: ["Barpeta", "Bongaigaon", "Bokakhat", "Chabua", "Dergaon", "Dhekiajuli", "Dhubri", "Dibrugarh", "Digboi", "Diphu", "Duliajan", "Gohpur", "Goalpara", "Golaghat", "Guwahati", "Hailakandi", "Hojo", "Jorhat", "Karimganj", "Lanka", "Lumding", "Mangaldoi", "Marigaon", "Morigaon", "Nagaon", "Nazira", "Nalbari", "North Lakhimpur", "Numaligarh", "Nongpoh", "Rangia", "Sadiya", "Sarupathar", "Silapathar", "Silchar", "Sivasagar", "Sonari", "Tezpur", "Tinsukia", "Titabar", "Umrangso"]
+ },
+      { state: "Bihar", cities: ["Ara", "Araria", "Arwal", "Asarganj", "Aurangabad", "Bagaha", "Bahadurganj", "Bairgania", "Bakhtiarpur", "Banka", "Banmankhi Bazar", "Barahiya", "Barauli", "Barbigha", "Barh", "Begusarai", "Benipatti", "Bettiah", "Bhabhua", "Bhagalpur", "Bihar Sharif", "Bikramganj", "Bodh Gaya", "Buxar", "Chakia", "Chhapra", "Colgong", "Dalsinghsarai", "Darbhanga", "Daudnagar", "Dehri-on-Sone", "Dhaka", "Dighwara", "Dumraon", "Forbesganj", "Gaya", "Gogri Jamalpur", "Gopalganj", "Hajipur", "Hilsa", "Hisua", "Islampur", "Jagdispur", "Jamalpur", "Jamui", "Jehanabad", "Jhajha", "Jhanjharpur", "Jogabani", "Kanti", "Katihar", "Khagaria", "Kharagpur", "Kishanganj", "Koath", "Koilwar", "Lakhisarai", "Lalganj", "Madhepura", "Madhubani", "Maharajganj", "Mahnar Bazar", "Makhdumpur", "Maner", "Manihari", "Marhaura", "Masaurhi", "Mirganj", "Mokama", "Motihari", "Motipur", "Munger", "Murliganj", "Muzaffarpur", "Narkatiaganj", "Naugachhia", "Nawada", "Nokha", "Patna", "Piro", "Purnia", "Rafiganj", "Rajgir", "Ramnagar", "Raxaul Bazar", "Revelganj", "Rosera", "Saharsa", "Samastipur", "Sasaram", "Sheikhpura", "Sheohar", "Sherghati", "Silao", "Sitamarhi", "Siwan", "Sonepur", "Sugauli", "Sultanganj", "Supaul", "Warisaliganj"]},
+
+      { state: "Chhattisgarh", cities:["Ambikapur", "Antagarh", "Arang", "Bade Bacheli", "Bagbahara", "Baikunthpur", "Balod", "Baloda Bazar", "Balrampur", "Barpali", "Basna", "Bastar", "Bemetara", "Bhanpuri", "Bharatpur", "Bhatapara", "Bhilai", "Bhilai Charoda", "Bijapur", "Bilaspur", "Bodri", "Champa", "Chhuikhadan", "Chirmiri", "Dantewada", "Deori", "Dhamdha", "Dharamjaigarh", "Dipka", "Doman Hill Colliery", "Dongargaon", "Durg", "Gandai", "Gariaband", "Gaurella", "Gobra Nawapara", "Gogaon", "Gopalpur", "Guma", "Jagdalpur", "Jamui", "Jashpurnagar", "Kanker", "Katghora", "Kawardha", "Keskal", "Kondagaon", "Korba", "Koriya", "Kumhari", "Kurud", "Lormi", "Mahasamund", "Mungeli", "Naila Janjgir", "Namna Kalan", "Naya Baradwar", "New Raipur", "Pandariya", "Pasan", "Pendra", "Raigarh", "Raipur", "Rajnandgaon", "Rajpur", "Ramanuj Ganj", "Sakti", "Saraipali", "Sarangarh", "Simga", "Sirgiti", "Tilda Newra", "Urla", "Vikasnagar"]
+},
+      { state: "Gujarat", cities:["Ahmedabad", "Amreli", "Anand", "Anjar", "Ankleshwar", "Bardoli", "Bharuch", "Bhavnagar", "Bhuj", "Borsad", "Botad", "Chandkheda", "Chhapra", "Chhota Udepur", "Dabhoi", "Dahod", "Dholka", "Dwarka", "Gandhidham", "Gandhinagar", "Godhra", "Gondal", "Himatnagar", "Idar", "Jamnagar", "Jetpur Navagadh", "Junagadh", "Kadi", "Kalol", "Kapadvanj", "Karjan", "Keshod", "Khambhat", "Kheda", "Khedbrahma", "Kheralu", "Kodinar", "Lunawada", "Mahesana", "Mahuva", "Makarba", "Mandvi", "Mangrol", "Mansa", "Modasa", "Morvi", "Nadiad", "Naroda", "Navsari", "Nikol", "Okha Port", "Palanpur", "Patan", "Porbandar", "Rajkot", "Rajpipla", "Rajula", "Sabarkantha", "Sanand", "Savarkundla", "Sidhpur", "Sihor", "Songadh", "Surat", "Surendranagar", "Thaltej", "Unjha", "Vadodara", "Valsad", "Vapi", "Vastral", "Veraval", "Vijapur", "Viramgam", "Visnagar", "Wadhwan"]
+},
+      { state: "Haryana", cities:["Ambala", "Assandh", "Bahadurgarh", "Bhiwani", "Charkhi Dadri", "Dabwali", "Ellenabad", "Faridabad", "Fatehabad", "Gohana", "Gurugram", "Hansi", "Hisar", "Jagadhri", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Ladwa", "Mahendragarh", "Mandi Dabwali", "Narnaul", "Narwana", "Palwal", "Panchkula", "Panipat", "Pehowa", "Pinjore", "Rania", "Rohtak", "Safidon", "Samalkha", "Sonepat", "Sirsa", "Sohna", "Tohana", "Yamunanagar"]
+},
+      { state: "Himachal Pradesh", cities:["Baddi", "Baijnath", "Chail", "Chamba", "Dalhousie", "Dharamshala", "Hamirpur", "Jawalamukhi", "Jogindernagar", "Kalpa", "Kangra", "Kasauli", "Keylong", "Kinnaur", "Kullu", "Lahaul and Spiti", "Mandi", "Manali", "Nahan", "Palampur", "Paonta Sahib", "Parwanoo", "Rajgarh", "Rampur", "Reckong Peo", "Sangla", "Sarkaghat", "Shimla", "Solan", "Sundarnagar", "Theog"]
+},
+      { state: "Jammu and Kashmir", cities:["Akhnur", "Anantnag", "Badgam", "Bandipora", "Baramulla", "Doda", "Ganderbal", "Jammu", "Kargil", "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Leh", "Poonch", "Pulwama", "Rajauri", "Ramban", "Reasi", "Samba", "Shopian", "Sopore", "Srinagar", "Udhampur"]
+},
+
+    { state: "Goa", cities:["Bicholim", "Canacona", "Cuncolim", "Curchorem", "Mapusa", "Margao", "Mormugao", "Panaji", "Pernem", "Ponda", "Quepem", "Salcete", "Sanguem", "Sanquelim", "Valpoi"]
+},
+    { state: "Jharkhand", cities:["Adityapur", "Bokaro Steel City", "Chaibasa", "Deoghar", "Dhanbad", "Dumka", "Giridih", "Hazaribagh", "Jamshedpur", "Jharia", "Jhumri Tilaiya", "Lohardaga", "Madhupur", "Mango", "Pakur", "Patratu", "Ramgarh Cantonment", "Ranchi", "Sahibganj", "Saraikela", "Silli"]
+},
+    { state: "Karnataka", cities:["Bagalkot", "Ballari", "Belagavi", "Bengaluru", "Bidar", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Davanagere", "Dharwad", "Gadag", "Gangavathi", "Gokak", "Gulbarga", "Hassan", "Haveri", "Hiriyur", "Hospet", "Hubballi-Dharwad", "Kolar", "Koppal", "Madikeri", "Mahalingapura", "Mandya", "Mangaluru", "Manipal", "Mudhol", "Mudigere", "Mudukulathur", "Mysuru", "Nanjangud", "Raichur", "Ramanagara", "Ranibennur", "Sagar", "Shahabad", "Shimoga", "Sindgi", "Sirsi", "Talikota", "Tarikere", "Tiptur", "Tumkur", "Udupi", "Vijayapura", "Yadgir"]
+},
+    { state: "Kerala", cities:["Adoor", "Alappuzha", "Attingal", "Chalakudy", "Changanassery", "Cherthala", "Chittur-Thathamangalam", "Erattupetta", "Guruvayoor", "Irattakuttaiya", "Kalamassery", "Kalpetta", "Kanhangad", "Kannur", "Kasaragod", "Kayamkulam", "Kochi", "Kodungallur", "Kollam", "Kottarakkara", "Kottayam", "Kozhikode", "Kunnamkulam", "Malappuram", "Mattannur", "Mavelikkara", "Muvattupuzha", "Nedumangad", "Neyyattinkara", "Nilambur", "Ottappalam", "Palai", "Palakkad", "Panniyannur", "Pappinisseri", "Paravoor", "Pathanamthitta", "Payyannur", "Peringathur", "Perinthalmanna", "Perumbavoor", "Ponnani", "Punalur", "Quilandy", "Shoranur", "Taliparamba", "Thiruvalla", "Thiruvananthapuram", "Thrissur", "Tirur", "Vaikom", "Varkala"]
+},
+    { state: "Madhya Pradesh", cities:["Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Itarsi", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandsaur", "Mhow", "Morena", "Murwara (Katni)", "Nagda", "Narsinghgarh", "Narsinghpur", "Neemuch", "Pithampur", "Raghogarh-Vijaypur", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Vidisha"]
+},
+    { state: "Maharashtra", cities:["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Bhiwandi", "Dhule", "Jalgaon", "Kalyan-Dombivli", "Kolhapur", "Latur", "Malegaon", "Mumbai", "Nagpur", "Nanded", "Nashik", "Navi Mumbai", "Osmanabad", "Panvel", "Parbhani", "Pimpri-Chinchwad", "Pune", "Sangli", "Satara", "Solapur", "Thane", "Ulhasnagar", "Vasai-Virar"]
+},
+
+    { state: "Manipur", cities:["Bishnupur", "Churachandpur", "Imphal", "Kakching", "Lilong", "Mayang Imphal", "Senapati", "Thoubal", "Ukhrul"]
+},
+    { state: "Meghalaya", cities:["Baghmara", "Cherrapunji", "Jowai", "Nongpoh", "Nongstoin", "Resubelpara", "Shillong", "Tura", "Williamnagar"]
+},
+    { state: "Mizoram", cities:["Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Saitual", "Serchhip"]
+},
+    { state: "Nagaland", cities:["Chumukedima", "Dimapur", "Kiphire", "Kohima", "Mokokchung", "Mon", "Phek", "Tuensang", "Wokha", "Zunheboto"]
+},
+    { state: "Odisha", cities:["Balangir", "Baleshwar", "Barbil", "Bargarh", "Berhampur", "Bhadrak", "Bhubaneswar", "Brahmapur", "Jagatsinghapur", "Jajapur", "Jharsuguda", "Kendrapara", "Kendujhar", "Paradip", "Phulabani", "Puri", "Raurkela", "Rayagada", "Sambalpur", "Sonepur", "Sundargarh"]
+},
+    { state: "Punjab", cities:["Amritsar", "Barnala", "Batala", "Bathinda", "Faridkot", "Fazilka", "Firozpur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Khanna", "Ludhiana", "Malerkotla", "Mansa", "Moga", "Mohali", "Muktsar", "Nabha", "Pathankot", "Patiala", "Phagwara", "Rajpura", "Rupnagar", "Sangrur", "Sirhind", "Tarn Taran"]
+},
+    { state: "Rajasthan", cities:["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Beawar", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Fatehpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Kishangarh", "Kota", "Makrana", "Nagaur", "Pali", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Tonk", "Udaipur"]
+},
+    { state: "Sikkim", cities:["Gangtok", "Gyalshing", "Jorethang", "Mangan", "Namchi", "Rangpo", "Ravangla", "Singtam"]
+},
+    { state: "Tamil Nadu", cities:["Chennai", "Coimbatore", "Cuddalore", "Dindigul", "Erode", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagercoil", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Salem", "Sivagangai", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"]
+},
+
+{
+	state: "Telangana",	cities: ["Hyderabad","Warangal","Karimnagar","Nizamabad","Khammam","Ramagundam","Mahbubnagar","Nalgonda","Adilabad","Suryapet","Miryalaguda","Jagtial","Mancherial","Siddipet",	"Nirmal","Kamareddy","Kothagudem","Sangareddy","Bodhan","Koratla"]
+},
+    { state: "Tripura", cities:["Agartala", "Ambassa", "Belonia", "Dharmanagar", "Kailasahar", "Khowai", "Pratapgarh", "Sabroom", "Sonamura", "Udaipur"]
+},
+    { state: "Uttarakhand", cities:["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi"]
+},
+    { state: "Uttar Pradesh", cities:["Agra", "Aligarh", "Allahabad", "Amroha", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bijnor", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar", "Pilibhit", "Pratapgarh", "Raebareli", "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar", "Shahjahanpur", "Shamli", "Shrawasti", "Siddharthnagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"]
+},
+    { state: "West Bengal", cities:["Alipurduar", "Asansol", "Bardhaman", "Barrackpore", "Chandannagar", "Darjeeling", "Durgapur", "Haldia", "Howrah", "Kharagpur", "Kolkata", "Malda", "Midnapore", "Naihati", "North Barrackpur", "Raiganj", "Rajarhat-Gopalpur", "Serampore", "Siliguri", "South Dum Dum"]
+},
+    { state: "Andaman and Nicobar Islands", cities:["Bamboo Flat", "Diglipur", "Ferrargunj", "Garacharma", "Havelock", "Jirkatang", "Mayabunder", "Port Blair", "Rangat"]
+},
+    { state: "Chandigarh", cities:["Chandigarh"]
+},
+    { state: "Daman and Diu", cities:["Daman", "Diu"]
+},
+    { state: "Delhi", cities:["Delhi", "New Delhi"]
+},
+    { state: "Lakshadweep", cities:["Amini", "Kavaratti", "Andrott", "Kalpeni", "Agatti", "Kiltan", "Chetlat", "Bitra", "Minicoy"]
+},
+    { state: "Puducherry", cities:["Karaikal", "Mahe", "Puducherry", "Yanam"]
+}
+
+
+
+
+
+
+    ];
+
+    function populateCities() {
+      const stateSelect = document.getElementById("state");
+      const citySelect = document.getElementById("city");
+      const selectedState = stateSelect.value;
+
+      // Clear the city select element
+      citySelect.innerHTML = "<option value=''>Select City</option>";
+
+      // Find the cities for the selected state and populate the city select element
+      cities.forEach(function(item) {
+        if (item.state === selectedState) {
+          item.cities.forEach(function(city) {
+            const option = document.createElement("option");
+            option.value = city;
+            option.text = city;
+            citySelect.appendChild(option);
+          });
+        }
+      });
+    }
+
+    const stateSelect = document.getElementById("state");
+    stateSelect.addEventListener("change", populateCities);
+  </script>
+                  
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <label for="inputDate" class="col-sm-2 col-form-label">Other Campus Cities (if any)</label>
+              <div class="col-sm-10">
+                <input type="text" th:field="*{other_campus_city}" class="form-control">
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <label for="inputTime" class="col-sm-2 col-form-label required">Founder Name</label>
+              <div class="col-sm-10">
+                <input type="text" th:field="*{founder_name}" class="form-control" required>
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <label for="inputColor" class="col-sm-2 col-form-label required">Director/Principal</label>
+              <div class="col-sm-10">
+                <input type="text" th:field="*{director_or_principle}" class="form-control" required>
+              </div>
+            </div>
+
+            <h5 class="card-title">Your Indentity is Our Priority</h5>
+
+
+            
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Company - Website</label>
+              <div class="col-sm-10">
+                <input type="url" th:field="*{company_website}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Company - Linkedin</label>
+              <div class="col-sm-10">
+                <input type="url"  th:field="*{company_linked_in}" class="form-control">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Any other relevant link</label>
+              <div class="col-sm-10">
+                <input type="url" th:field="*{any_other_relevant_link}" class="form-control">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputNumber" class="col-sm-2 col-form-label required">Corporate Presentation</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="file" th:field="*{corporate_presentation}" id="formFile" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputNumber" class="col-sm-2 col-form-label">Any other file upload </label>
+              <div class="col-sm-10">
+                <input class="form-control" type="file"  th:field="*{any_other_file_upload}" id="formFile">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputDate" class="col-sm-2 col-form-label required">Specialization</label>
+              <div class="col-sm-10">
+                <select th:field="*{specialization}" class="form-select" aria-label="Default select example" required>
+                  <option value="" selected>Select an Option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+           <h5 class="card-title">Numbers are Key to Knock the Opportunity</h5>
+
+           <div class="row mb-3">
+              <label for="inputDate" class="col-sm-2 col-form-label required">Batch Size</label>
+              <div class="col-sm-10">
+                <select th:field="*{batch_size}" class="form-select" aria-label="Default select example" required>
+                  <option value="" selected>Select an Option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">No. of Campuses</label>
+              <div class="col-sm-10">
+                <input type="number" th:field="*{no_of_campuses}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Median CTC</label>
+              <div class="col-sm-10">
+                <input type="number"  th:field="*{median_ctc}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Average CTC</label>
+              <div class="col-sm-10">
+                <input type="number"  th:field="*{average_ctc}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Summers Median CTC</label>
+              <div class="col-sm-10">
+                <input type="number" th:field="*{summer_median_ctc}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputDate" class="col-sm-2 col-form-label required">Preferred Sectors</label>
+              <div class="col-sm-10">
+                <select th:field="*{preferred_sectors}" class="form-select" aria-label="Default select example" required>
+                  <option value="" selected>Select an Option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <h5 class="card-title">Time is of Essence</h5>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Summers Placement </label>
+              <div class="col-sm-10">
+                <input type="date" th:field="*{summer_placement}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Final Placement </label>
+              <div class="col-sm-10">
+                <input type="date" th:field="*{final_placement}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Winter Projects </label>
+              <div class="col-sm-10">
+                <input type="date" th:field="*{winter_placement}" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label required">Live Projects </label>
+              <div class="col-sm-10">
+                <input type="date" th:field="*{live_projects}" class="form-control" required>
+              </div>
+            </div>
+            
+            
+                  
+                  <div class="row mb-3">              
+                  <div class="col-sm-10" style="text-align: center;margin-top:30px;">
+                    <button type="submit" class="btn btn-primary" style=" margin-left: 50px;">Save</button>
+                    <button type="reset" class="btn btn-secondary" onclick="resetForm()">Clear</button>
+                  </div>
+                </div>
+
+
+          </form><!-- End General Form Elements -->
+
+        </div>
+      </div>
+
+  </main>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+	<script th:src="@{/vendor/apexcharts/apexcharts.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/vendor/chart.js/chart.umd.js}"></script>
+	<script th:src="@{/vendor/echarts/echarts.min.js}"></script>
+	<script th:src="@{/vendor/quill/quill.min.js}"></script>
+	<script th:src="@{/vendor/simple-datatables/simple-datatables.js}"></script>
+	<script th:src="@{/vendor/tinymce/tinymce.min.js}"></script>
+	<script th:src="@{/vendor/php-email-form/validate.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>
