@@ -133,11 +133,11 @@ public class MainController {
 		return mav;
 	}
 	
-	@GetMapping("/register")
-	public ModelAndView register() {
-		ModelAndView mav = new ModelAndView("register");
-		return mav;
-	}
+//	@GetMapping("/register")
+//	public ModelAndView register() {
+//		ModelAndView mav = new ModelAndView("register");
+//		return mav;
+//	}
 	@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mav = new ModelAndView("login");
