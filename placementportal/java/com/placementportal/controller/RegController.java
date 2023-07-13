@@ -35,6 +35,7 @@ public class RegController {
 		System.out.println(user);
 		//password encryption 
 		user.setPassword(bp.encode(user.getPassword()));
+		//user.setRole(user.getRole());
 		
 		session.setAttribute("msg", "Registration  successfully!");
 		userRepository.save(user);

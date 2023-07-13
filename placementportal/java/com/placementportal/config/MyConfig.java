@@ -41,9 +41,16 @@ public class MyConfig{
 	 @Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	        
-		 http.authorizeRequests().requestMatchers("/user/**").hasRole("ADMIN").requestMatchers("/**").permitAll()
-		 .and().formLogin().and().csrf().disable();
+		 http.authorizeRequests().requestMatchers("/admin/**").hasRole("ADMIN")
+		 .requestMatchers("/user/**").hasRole("STUDENT")
+		 .requestMatchers("/placementofficer/**").hasRole("PO")
+		 .requestMatchers("/hr/**").hasRole("HR")
+		 .requestMatchers("/**").permitAll()
+		 .and().formLogin().loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/profile")
+		 .and().csrf().disable();
 		 
+		 
+		 http.authenticationProvider(daoAuthenticationProvider());
 		 
 	        return http.build();
 	    }

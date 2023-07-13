@@ -41,7 +41,14 @@ public class MainController {
 	@Autowired(required = true)
 	private CandidateService candidateService;
 	  
-	@GetMapping("/")
+	
+	@GetMapping("/login")
+	public String loginHome()
+	{
+		return "login";
+	}
+	
+	@GetMapping("/startup")
 	public String startupjobDesc(Model model) {
 		Job job = new Job();
 		model.addAttribute("job", job);
@@ -121,11 +128,11 @@ public class MainController {
 		return "joblistfilters";
 	}
 	
-	@GetMapping("/index")
-	public ModelAndView homepage() {
-		ModelAndView mav = new ModelAndView("index");
-		return mav;
-	}
+//	@GetMapping("/index")
+//	public ModelAndView homepage() {
+//		ModelAndView mav = new ModelAndView("index");
+//		return mav;
+//	}
 	 
 	@GetMapping("/jobopening")
 	public ModelAndView jobopening() {
@@ -138,11 +145,14 @@ public class MainController {
 //		ModelAndView mav = new ModelAndView("register");
 //		return mav;
 //	}
-	@GetMapping("/login")
-	public ModelAndView login() {
-		ModelAndView mav = new ModelAndView("login");
-		return mav;
-	}
+	
+//	@GetMapping("/login")
+//	public ModelAndView login() {
+//		ModelAndView mav = new ModelAndView("login");
+//		return mav;
+//	}
+	
+	
 	
 	//Company Controllers
 	@PostMapping("/saveCompany")
